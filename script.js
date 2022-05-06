@@ -30,17 +30,37 @@ $('.newList').on("click", function(evt){
 // $('#btn1').click(function(evt){
 //     console.log(evt,this)
 
-$("#btn1").click(function(evt){
-    let $text = $("#txt");
-     console.log($text.val())
-    $("ul").append( $("<li> " + $text.val() +  "</li>"))
-    console.log(evt,$text)
-})
+// $("#btn1").click(function(evt){
+//     let $text = $("#txt");
+//      console.log($text.val())
+//     $("ul").append( $("<li> " + $text.val() +  "</li>"))
+//     console.log(evt,$text)
+// })
 
 
 
 // AAU, I want to be able to remove an individual skill one at a time in case I make a mistake.
 
-$('#btn2').click(function(evt){
-    $('#skills').children().last().remove();
-})
+// $('#btn2').click(function(evt){
+//     $('#skills').children().last().remove();
+// })
+
+$('#btn1').click(function (evt) {
+    let $text = $('#txt');
+    console.log($text.val());
+    $('ul').append(
+      $(
+        '<li> ' +
+          '<button class="rmvBtn" >X</button>' +
+          ' ' +
+          $text.val() +
+          '</li>'
+      )
+    );
+  
+    $('.rmvBtn').click(function () {
+      $(this).closest('li').remove();
+    });
+  
+    console.log(evt, $text);
+  });
